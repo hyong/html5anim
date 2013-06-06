@@ -1,0 +1,23 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="utf-8"/>
+            <title>Mouse Position Demo</title>
+            <link rel="stylesheet" href="style.css"/>
+        </head>
+        <body>
+            <canvas id="canvas" width="400" height="400"/>
+            <script src="utils.js"></script>
+            <script>
+                window.onload = function () {
+                    console.log("window.onload");
+                    var canvas = document.getElementById('canvas'),
+                        mouse = utils.captureMouse(canvas);
+
+                    canvas.addEventListener('mousedown', function () {
+                        console.log("x: " + mouse.x + ", y: " + mouse.y);
+                    }, false);
+                };
+            </script>
+        </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bobbing 1</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <script src="utils.js"></script>
+        <script src="ball.js"></script>
+        <script>
+            window.onload = function () {
+                var canvas = document.getElementById('canvas'),
+                    context = canvas.getContext('2d'),
+                    ball = new Ball(40, "#0000ff"),
+                    xangle = 0,
+                    yangle = 0,
+                    centerX = canvas.width / 2,
+                    centerY = canvas.height / 2,
+                    range = .5,
+                    xspeed = .1,
+                    yspeed = .05,
+                    speed = .05,
+                    angle = 0,
+                    centerScale = 1;
+                ball.x = canvas.width / 2;
+                ball.y = canvas.height / 2;
+                (function drawFrame () {
+                    window.requestAnimationFrame(drawFrame, canvas);
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    ball.x = centerX + Math.cos(angle) * 100; //ball.x % 400;
+                    ball.y = centerY + Math.sin(angle) * 50;
+                    //xangle += xspeed;
+                    //yangle += yspeed;
+                    //ball.scaleX = ball.scaleY = centerScale + Math.sin(angle) / range;
+                    angle += speed;
+                    ball.draw(context);
+                }());
+            };
+        </script>
+    </body>
+</html>
