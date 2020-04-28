@@ -1,4 +1,3 @@
-// comment for test
 function Arrow () {
     this.x = 0;
     this.y = 0;
